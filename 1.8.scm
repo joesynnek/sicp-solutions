@@ -16,4 +16,3 @@
   (* x x x))
 (define (good-enough x target)
   (< (abs (- (cube x) target)) 0.0001))
-(curt 27)
