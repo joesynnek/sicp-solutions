@@ -1,0 +1,11 @@
+(define (even? n) (= (remainder n 2) 0))
+(define (square n) (* n n))
+
+(define (fast-pow n exp)
+  (define (calc currentValue exp left)
+    (cond ((= exp 0) left)
+          ((= exp 1) (* left currentValue))
+          ((even? exp) (calc (square currentValue) (/ exp 2) left))
+          (else (calc currentValue (- exp 1) (* currentValue left)))))
+  (calc n exp 1)
+)
